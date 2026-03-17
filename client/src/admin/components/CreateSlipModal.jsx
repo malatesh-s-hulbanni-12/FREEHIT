@@ -71,7 +71,7 @@ const CreateSlipModal = ({ isOpen, onClose, onSuccess }) => {
 
       // The backend will set status to 'active' automatically
       const response = await axios.post(
-        'http://localhost:5000/api/slips',
+        'https://freehit.onrender.com/api/slips',
         { questions },
         { 
           headers: { 
