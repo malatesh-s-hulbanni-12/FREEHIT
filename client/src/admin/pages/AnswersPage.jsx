@@ -45,13 +45,13 @@ const AnswersPage = () => {
       const token = localStorage.getItem('adminToken');
       
       // Fetch slips
-      const slipsResponse = await axios.get('http://localhost:5000/api/slips', {
+      const slipsResponse = await axios.get('https://freehit.onrender.com/api/slips', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSlips(slipsResponse.data.slips || []);
       
       // Fetch submitted answers
-      const answersResponse = await axios.get('http://localhost:5000/api/answers', {
+      const answersResponse = await axios.get('https://freehit.onrender.com/api/answers', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSubmittedAnswers(answersResponse.data.answers || []);
@@ -127,7 +127,7 @@ const AnswersPage = () => {
       };
 
       const response = await axios.post(
-        'http://localhost:5000/api/answers',
+        'https://freehit.onrender.com/api/answers',
         answerData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -220,7 +220,7 @@ const AnswersPage = () => {
       };
 
       const response = await axios.put(
-        `http://localhost:5000/api/answers/${editingAnswer._id}`,
+        `https://freehit.onrender.com/api/answers/${editingAnswer._id}`,
         updatedAnswerData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
