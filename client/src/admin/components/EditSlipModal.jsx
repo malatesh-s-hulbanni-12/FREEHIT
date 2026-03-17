@@ -66,7 +66,7 @@ const EditSlipModal = ({ isOpen, onClose, slip, onSuccess }) => {
       const token = localStorage.getItem('adminToken');
       
       const response = await axios.put(
-        `http://localhost:5000/api/slips/${slip._id}`,
+        `https://freehit.onrender.com/api/slips/${slip._id}`,
         { 
           title,
           description,
