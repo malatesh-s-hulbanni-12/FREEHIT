@@ -49,7 +49,7 @@ const WithdrawalsPage = () => {
   const fetchWithdrawals = async () => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await axios.get('http://localhost:5000/api/withdrawals/all', {
+      const response = await axios.get('https://freehit.onrender.com/api/withdrawals/all', {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -152,7 +152,7 @@ const WithdrawalsPage = () => {
       }
 
       const response = await axios.put(
-        `http://localhost:5000/api/withdrawals/${selectedWithdrawal._id}`,
+        `https://freehit.onrender.com/api/withdrawals/${selectedWithdrawal._id}`,
         updateData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -188,7 +188,7 @@ const WithdrawalsPage = () => {
       const token = localStorage.getItem('adminToken');
       
       const response = await axios.put(
-        `http://localhost:5000/api/withdrawals/${withdrawal._id}`,
+        `https://freehit.onrender.com/api/withdrawals/${withdrawal._id}`,
         { status: 'processing' },
         { headers: { Authorization: `Bearer ${token}` } }
       );
