@@ -48,16 +48,16 @@ const ProfilePage = () => {
       
       // Fetch all data in parallel
       const [betsResponse, transactionsResponse, withdrawalsResponse, answersResponse] = await Promise.all([
-        axios.get('http://localhost:5000/api/bets/my-bets', {
+        axios.get('https://freehit.onrender.com/api/bets/my-bets', {
           headers: { Authorization: `Bearer ${token}` }
         }),
-        axios.get('http://localhost:5000/api/transactions', {
+        axios.get('https://freehit.onrender.com/api/transactions', {
           headers: { Authorization: `Bearer ${token}` }
         }),
-        axios.get('http://localhost:5000/api/withdrawals/my-withdrawals', {
+        axios.get('https://freehit.onrender.com/api/withdrawals/my-withdrawals', {
           headers: { Authorization: `Bearer ${token}` }
         }),
-        axios.get('http://localhost:5000/api/answers/public')
+        axios.get('https://freehit.onrender.com/api/answers/public')
       ]);
       
       const betsData = betsResponse.data.bets || [];
