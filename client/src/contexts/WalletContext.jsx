@@ -17,7 +17,7 @@ export const WalletProvider = ({ children }) => {
   const addFunds = async (amount) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post('http://localhost:5000/api/wallet/add', 
+      const response = await axios.post('https://freehit.onrender.com/api/wallet/add', 
         { amount },
         { headers: { Authorization: `Bearer ${token}` } }
       );
