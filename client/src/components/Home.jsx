@@ -50,7 +50,7 @@ const Home = () => {
       setError(null);
       
       console.log('📡 Fetching active slips from server...');
-      const response = await axios.get('http://localhost:5000/api/slips/active');
+      const response = await axios.get('https://freehit.onrender.com/api/slips/active');
       
       console.log('📦 Server response:', response.data);
       
@@ -93,7 +93,7 @@ const Home = () => {
 
   const debugDatabase = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/slips/debug');
+      const response = await axios.get('https://freehit.onrender.com/api/slips/debug');
       console.log('🔍 Database Debug Info:', response.data);
       toast.success('Check console for debug info');
       
@@ -173,7 +173,7 @@ const Home = () => {
     console.log('📤 Sending bet data:', betData);
 
     const response = await axios.post(
-      'http://localhost:5000/api/bets',
+      'https://freehit.onrender.com/api/bets',
       betData,
       { 
         headers: { 
