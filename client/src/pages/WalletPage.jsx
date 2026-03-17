@@ -67,10 +67,10 @@ const WalletPage = () => {
       
       // Fetch transactions and won bets in parallel
       const [transactionsResponse, betsResponse] = await Promise.all([
-        axios.get('http://localhost:5000/api/transactions', {
+        axios.get('https://freehit.onrender.com/api/transactions', {
           headers: { Authorization: `Bearer ${token}` }
         }),
-        axios.get('http://localhost:5000/api/bets/my-bets', {
+        axios.get('https://freehit.onrender.com/api/bets/my-bets', {
           headers: { Authorization: `Bearer ${token}` }
         })
       ]);
@@ -301,7 +301,7 @@ const WalletPage = () => {
 
       console.log('📤 Processing withdrawal:', withdrawalData);
       
-      const response = await axios.post('http://localhost:5000/api/withdrawals', 
+      const response = await axios.post('https://freehit.onrender.com/api/withdrawals', 
         withdrawalData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
