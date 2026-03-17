@@ -57,7 +57,7 @@ const PaymentForm = ({ amount, onSuccess, onFailure, onCancel, clientSecret }) =
         // Payment successful
         try {
           const token = localStorage.getItem('token');
-          await axios.post('http://localhost:5000/api/payments/confirm-payment',
+          await axios.post('https://freehit.onrender.com/api/payments/confirm-payment',
             {
               paymentIntentId: clientSecret.split('_secret_')[0],
               amount: parseFloat(amount)
@@ -152,7 +152,7 @@ const StripePaymentModal = ({ isOpen, onClose, amount, onSuccess, onFailure }) =
     const initializeStripe = async () => {
       try {
         // Get Stripe publishable key
-        const configResponse = await axios.get('http://localhost:5000/api/payments/config');
+        const configResponse = await axios.get('https://freehit.onrender.com/api/payments/config');
         const stripe = loadStripe(configResponse.data.publishableKey);
         setStripePromise(stripe);
       } catch (error) {
@@ -179,7 +179,7 @@ const StripePaymentModal = ({ isOpen, onClose, amount, onSuccess, onFailure }) =
       try {
         const token = localStorage.getItem('token');
         const response = await axios.post(
-          'http://localhost:5000/api/payments/create-payment-intent',
+          'https://freehit.onrender.com/api/payments/create-payment-intent',
           { amount: parseFloat(amount) },
           { headers: { Authorization: `Bearer ${token}` } }
         );
