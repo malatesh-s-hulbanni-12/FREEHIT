@@ -30,7 +30,7 @@ const AdminDashboard = () => {
   const fetchSlips = async () => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await axios.get('http://localhost:5000/api/slips', {
+      const response = await axios.get('https://freehit.onrender.com/api/slips', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSlips(response.data.slips || []);
@@ -45,7 +45,7 @@ const AdminDashboard = () => {
   const fetchStats = async () => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await axios.get('http://localhost:5000/api/slips/stats', {
+      const response = await axios.get('https://freehit.onrender.com/api/slips/stats', {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -63,7 +63,7 @@ const AdminDashboard = () => {
 
     try {
       const token = localStorage.getItem('adminToken');
-      await axios.delete(`http://localhost:5000/api/slips/${id}`, {
+      await axios.delete(`https://freehit.onrender.com/api/slips/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
