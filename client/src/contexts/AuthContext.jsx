@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const token = localStorage.getItem('token');
       if (token) {
-        const response = await axios.get('http://localhost:5000/api/auth/me', {
+        const response = await axios.get('https://freehit.onrender.com/api/auth/me', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUser(response.data.user);
@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
+      const response = await axios.post('https://freehit.onrender.com/api/auth/login', {
         email,
         password
       });
@@ -63,7 +63,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', userData);
+      const response = await axios.post('https://freehit.onrender.com/api/auth/register', userData);
       
       const { token, user, message } = response.data;
       localStorage.setItem('token', token);
@@ -105,7 +105,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const token = localStorage.getItem('token');
       if (token) {
-        const response = await axios.get('http://localhost:5000/api/auth/me', {
+        const response = await axios.get('https://freehit.onrender.com/api/auth/me', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUser(response.data.user);
