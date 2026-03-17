@@ -46,12 +46,12 @@ const BetsPage = () => {
       const token = localStorage.getItem('adminToken');
       
       // Fetch all bets
-      const betsResponse = await axios.get('http://localhost:5000/api/bets/all', {
+      const betsResponse = await axios.get('https://freehit.onrender.com/api/bets/all', {
         headers: { Authorization: `Bearer ${token}` }
       });
       
       // Fetch all answers to determine winners
-      const answersResponse = await axios.get('http://localhost:5000/api/answers/public');
+      const answersResponse = await axios.get('https://freehit.onrender.com/api/answers/public');
       
       const betsData = betsResponse.data.bets || [];
       const answersData = answersResponse.data.answers || [];
@@ -135,7 +135,7 @@ const BetsPage = () => {
       console.log(`📝 Updating bet ${betId} to ${newStatus} in database...`);
       
       const response = await axios.put(
-        `http://localhost:5000/api/bets/${betId}`,
+        `https://freehit.onrender.com/api/bets/${betId}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -206,7 +206,7 @@ const BetsPage = () => {
       console.log(`📝 Manually marking bet ${betId} as ${newStatus}...`);
       
       const response = await axios.put(
-        `http://localhost:5000/api/bets/${betId}`,
+        `https://freehit.onrender.com/api/bets/${betId}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
